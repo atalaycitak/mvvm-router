@@ -2,26 +2,17 @@ import UIKit
 import SwiftUI
 import Combine
 
-struct HostingRootView<Content: View>: View {
-    let content: Content
-    let backgroundColor: Color = Color(.systemGroupedBackground)
 
-    var body: some View {
-        ZStack {
-            backgroundColor.edgesIgnoringSafeArea(.all)
-            content
-        }
-    }
-}
-
-class BaseHostingController<Content: View, ViewModel: BaseViewModelProtocol>: UIHostingController<HostingRootView<Content>> {
-
+class BaseHostingController<Content: View, ViewModel: BaseViewModelProtocol>: UIHostingController<Content> {
+   
+    let contentView: Content
     let viewModel: ViewModel
+
     
     init(contentView: Content, viewModel: ViewModel) {
+        self.contentView = contentView
         self.viewModel = viewModel
-        let rootView = HostingRootView(content: contentView)
-        super.init(rootView: rootView)
+        super.init(rootView: contentView)
     }
 
     @MainActor required dynamic init?(coder aDecoder: NSCoder) {

@@ -3,13 +3,6 @@ import SwiftUI
 
 final class InfoViewController: BaseHostingController<InfoView, InfoViewModel> {
     
-    init() {
-        let viewModel = InfoViewModel()
-        let view = InfoView(viewModel: viewModel)
-        super.init(contentView: view, viewModel: viewModel)
-        self.modalPresentationStyle = .pageSheet
-    }
-
     override func setup() {
         super.setup()
         setupCallbacks()

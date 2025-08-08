@@ -3,7 +3,7 @@ import Combine
 
 
 public protocol BaseViewModelProtocol: ObservableObject {
-    var title: String { get }
+    var title: String { get } //kaldırılabilir
     func viewDidLoad()
     func viewWillAppear()
     func viewDidAppear()
@@ -11,7 +11,7 @@ public protocol BaseViewModelProtocol: ObservableObject {
     func viewDidDisappear()
 }
 
-open class BaseViewModel: BaseViewModelProtocol {
+open class BaseViewModel: BaseViewModelProtocol { //swiftte encapsulation reserved keywordleri ne anlama gelir
     @Published public var isLoading: Bool = false
     @Published public var title: String = ""
 
