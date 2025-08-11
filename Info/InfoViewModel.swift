@@ -7,11 +7,8 @@
 
 import Foundation
 
-final class InfoViewModel: BaseViewModel {
+final class InfoViewModel: BaseViewModel<InfoRouter> {
     var onDismiss: (() -> Void)?
     
-    override init() {
-        super.init()
-        self.title = "Uygulama Bilgisi"
     }
-}
+

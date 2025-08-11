@@ -7,12 +7,6 @@
 
 import Foundation
 
-final class ProductDetailViewModel: BaseViewModel {
-    let product: Product
-    
-    init(product: Product) {
-        self.product = product
-        super.init()
-        self.title = product.name
-    }
+final class ProductDetailViewModel: BaseViewModel<ProductDetailRouter> {
+    var product : Product?
 }

@@ -11,15 +11,20 @@ public protocol BaseViewModelProtocol: ObservableObject {
     func viewDidDisappear()
 }
 
-open class BaseViewModel: BaseViewModelProtocol { //swiftte encapsulation reserved keywordleri ne anlama gelir
+ class BaseViewModel<R: RouterInterface>: BaseViewModelProtocol { //swiftte encapsulation reserved keywordleri ne anlama gelir
     @Published public var isLoading: Bool = false
     @Published public var title: String = ""
+     
+     let router: R
 
-    public init() {}
+     init(router: R) {
+         
+         self.router = router
+     }
 
-    open func viewDidLoad() {}
-    open func viewWillAppear() {}
-    open func viewDidAppear() {}
-    open func viewWillDisappear() {}
-    open func viewDidDisappear() {}
+     func viewDidLoad() {}
+     func viewWillAppear() {}
+     func viewDidAppear() {}
+     func viewWillDisappear() {}
+     func viewDidDisappear() {}
 }

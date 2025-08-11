@@ -25,7 +25,7 @@ struct ProductListView: View {
                 }
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    viewModel.onProductSelected?(product)
+                    viewModel.navigateToDetail(product: product)
                 }
             }
             .listStyle(InsetGroupedListStyle())
