@@ -10,9 +10,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let window = UIWindow(windowScene: windowScene)
         
-        let productListVC = ProductListViewController()
+        let  viewController = ProductListRouter.createModule()
         
-        let navigationController = UINavigationController(rootViewController: productListVC)
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
         
         window.rootViewController = navigationController
         
