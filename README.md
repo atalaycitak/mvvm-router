@@ -48,8 +48,7 @@ SwiftUI View: Arayüz bileşenleri.
 Service Layer: API, veri yönetimi vb.
 
 
-🔑 Kullanılan Teknolojiler
-Teknoloji	Açıklama
+ Kullanılan Teknolojiler
 SwiftUI	Modern arayüz geliştirme framework’ü
 UIKit	Klasik iOS UI framework’ü
 Combine	Reactive programlama için Apple framework’ü
@@ -59,7 +58,7 @@ Router Pattern	Modüller arası geçişin soyutlanması
 
 	
 	
-🛠 Geliştirici Notları
+ Geliştirici Notları
 
 Router yapısı ile her modül bağımsız çalışabilir.
 
@@ -67,6 +66,6 @@ SceneDelegate üzerinden tab bar yönetimi yapılır.
 
 Modüller arasındaki bağımlılık minimum seviyede tutulur.
 
-📜 Lisans
+Lisans
 
 Bu proje MIT Lisansı ile lisanslanmıştır. Dilediğiniz gibi kullanabilir ve geliştirebilirsiniz.
