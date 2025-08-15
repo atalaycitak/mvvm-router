@@ -11,6 +11,7 @@ import UIKit
 protocol ProductListRouterProtocol: RouterInterface{
     func routeToDetail(product: Product)
     func routeToInfo()
+    func routeToWelcome()
 }
 
 
@@ -29,6 +30,7 @@ final class ProductListRouter: Router{
     }
 }
 extension ProductListRouter: ProductListRouterProtocol{
+    
     func routeToDetail(product: Product) {
         let viewController = ProductDetailRouter.createModule(product: product)
         self.push(viewController, animated: true)
@@ -36,7 +38,13 @@ extension ProductListRouter: ProductListRouterProtocol{
     }
     func routeToInfo() {
         let viewController = InfoRouter.createModule()
-        self.present(viewController, animated: true)
+        self.push(viewController, animated: true)
         
     }
+    
+    func routeToWelcome() {
+        let viewController = WelcomeRouter.createModule()
+        self.push(viewController, animated: true)
+    }
+
 }

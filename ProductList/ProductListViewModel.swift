@@ -32,4 +32,9 @@ final class ProductListViewModel: BaseViewModel<ProductListRouter> {
     func navigateToInfo(){
         router.routeToInfo()
     }
+    @MainActor
+    func navigateToWelcome() {
+        router.routeToWelcome()
+    }
+
 }

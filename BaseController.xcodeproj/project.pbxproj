@@ -40,6 +40,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		2C6A74AF2E4F154F000A6F22 /* TabBar */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		2C74BFAA2E3CAC2A00EF84AB /* ProductList */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ProductList;
@@ -68,6 +73,11 @@
 		2C74BFC52E3CAC4700EF84AB /* Info */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Info;
+			sourceTree = "<group>";
+		};
+		2CBCBD0C2E4DCF1F00977FE6 /* Welcome */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		2CD201622E3B798A00905273 /* BaseController */ = {
@@ -118,6 +128,8 @@
 		2CD201572E3B798A00905273 = {
 			isa = PBXGroup;
 			children = (
+				2C6A74AF2E4F154F000A6F22 /* TabBar */,
+				2CBCBD0C2E4DCF1F00977FE6 /* Welcome */,
 				2C74BFC52E3CAC4700EF84AB /* Info */,
 				2C74BFBE2E3CAC4500EF84AB /* ProductDetail */,
 				2C74BFAA2E3CAC2A00EF84AB /* ProductList */,
@@ -157,12 +169,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				2C6A74AF2E4F154F000A6F22 /* TabBar */,
 				2C74BFAA2E3CAC2A00EF84AB /* ProductList */,
 				2C74BFB02E3CAC3400EF84AB /* Models */,
 				2C74BFB52E3CAC3C00EF84AB /* Base */,
 				2C74BFB92E3CAC4000EF84AB /* Application */,
 				2C74BFBE2E3CAC4500EF84AB /* ProductDetail */,
 				2C74BFC52E3CAC4700EF84AB /* Info */,
+				2CBCBD0C2E4DCF1F00977FE6 /* Welcome */,
 				2CD201622E3B798A00905273 /* BaseController */,
 			);
 			name = BaseController;
