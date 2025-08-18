@@ -6,21 +6,32 @@ struct ProductListView: View {
     var body: some View {
         ZStack {
             List(viewModel.products) { product in
-                HStack {
-                    Image(product.imageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 50 , height: 50)
-                        .cornerRadius(8)
+                HStack(spacing: 12) {
+                    AsyncImage(url: URL(string: product.photo)) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    } placeholder: {
+                        
+                    }
+                    .frame(width: 60, height: 60)
+                    .cornerRadius(8)
                     
-                    VStack(alignment: .leading) {
-                        Text(product.name)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(product.title)
                             .font(.headline)
                             .foregroundColor(.primary)
-                        Text(String(format: "₺%.2f", product.price))
+                            .lineLimit(2)
+                        
+                        Text(product.priceFormatted)
                             .font(.subheadline)
                             .foregroundColor(.secondary)
+                        
+                        Text("\(product.location.cityName) / \(product.location.townName)")
+                            .font(.caption)
+                            .foregroundColor(.gray)
                     }
+                    
                     Spacer()
                 }
                 .contentShape(Rectangle())
@@ -30,9 +41,7 @@ struct ProductListView: View {
             }
             .listStyle(InsetGroupedListStyle())
             
-            if viewModel.isLoading {
-                ProgressView()
-            }
         }
+        .navigationTitle("İlandaki Araçlar")
     }
 }
