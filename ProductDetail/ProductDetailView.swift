@@ -14,7 +14,7 @@ struct ProductDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
 
-                AsyncImage(url: URL(string: viewModel.product?.photo ?? "")) { image in
+                AsyncImage(url: URL(string: viewModel.listing?.photo ?? "")) { image in
                     image
                         .resizable()
                         .scaledToFit()
@@ -26,12 +26,12 @@ struct ProductDetailView: View {
                 .frame(maxWidth: .infinity)
                 .cornerRadius(12)
      
-                Text(viewModel.product?.title ?? "")
+                Text(viewModel.listing?.title ?? "")
                     .font(.title2)
                     .fontWeight(.bold)
                     .padding(.horizontal)
  
-                Text(viewModel.product?.priceFormatted ?? "")
+                Text(viewModel.listing?.priceFormatted ?? "")
                     .font(.title3)
                     .foregroundColor(.red)
                     .padding(.horizontal)
@@ -39,7 +39,7 @@ struct ProductDetailView: View {
                 HStack {
                     Image(systemName: "mappin.and.ellipse")
                         .foregroundColor(.gray)
-                    Text("\(viewModel.product?.location.cityName ?? "") / \(viewModel.product?.location.townName ?? "")")
+                    Text("\(viewModel.listing?.location.cityName ?? "") / \(viewModel.listing?.location.townName ?? "")")
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
@@ -47,7 +47,7 @@ struct ProductDetailView: View {
                 
                 Divider().padding(.vertical)
            
-                if let props = viewModel.product?.properties {
+                if let props = viewModel.listing?.properties {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("Özellikler")
                             .font(.headline)
@@ -57,7 +57,7 @@ struct ProductDetailView: View {
                                 Text(prop.name.capitalized)
                                     .fontWeight(.semibold)
                                 Spacer()
-                                Text(prop.value)
+                                Text(prop.value ?? "")
                             }
                             .padding(.vertical, 4)
                         }
