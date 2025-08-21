@@ -10,11 +10,11 @@ import UIKit
 
 
 final class ProductDetailRouter: RouterInterface{
-    static func createModule (product : Product)-> UIViewController{
+    static func createModule (listing : Listing)-> UIViewController{
         return Router.createModule(){
             let router = ProductDetailRouter()
             let viewModel = ProductDetailViewModel(router: router)
-            viewModel.product = product
+            viewModel.listing = listing
             let contentView = ProductDetailView(viewModel: viewModel  )
             let viewController = ProductDetailViewController(contentView: contentView, viewModel: viewModel)
             return viewController

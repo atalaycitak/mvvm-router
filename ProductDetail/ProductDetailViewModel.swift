@@ -8,5 +8,5 @@
 import Foundation
 
 final class ProductDetailViewModel: BaseViewModel<ProductDetailRouter> {
-    var product : Product?
+    var listing : Listing?
 }

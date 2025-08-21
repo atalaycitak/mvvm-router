@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 @MainActor
 protocol ProductListRouterProtocol: RouterInterface{
-    func routeToDetail(product: Product)
+    func routeToDetail(listing: Listing)
     func routeToInfo()
     func routeToWelcome()
 }
@@ -21,7 +21,7 @@ final class ProductListRouter: Router{
         return Router.createModule(){
             let router = ProductListRouter()
             let viewModel = ProductListViewModel(router: router)
-            let contentView = ProductListView(viewModel: viewModel  )
+            let contentView = CarListingView(viewModel: viewModel  )
             let viewController = ProductListViewController(contentView: contentView, viewModel: viewModel)
            
             router.viewController = viewController
@@ -31,8 +31,8 @@ final class ProductListRouter: Router{
 }
 extension ProductListRouter: ProductListRouterProtocol{
     
-    func routeToDetail(product: Product) {
-        let viewController = ProductDetailRouter.createModule(product: product)
+    func routeToDetail(listing: Listing) {
+        let viewController = ProductDetailRouter.createModule(listing: listing)
         self.push(viewController, animated: true)
         
     }

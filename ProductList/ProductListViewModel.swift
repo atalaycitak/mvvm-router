@@ -5,45 +5,49 @@
 //  Created by Atalay Çıtak on 31.07.2025.
 //
 import Foundation
+import Combine
 
 final class ProductListViewModel: BaseViewModel<ProductListRouter> {
-    @Published var products: [Product] = []
+    @Published var cars: [Listing] = []
+
+    @Published var errorMessage: String? = nil
+
+    private let carService = CarService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Product List"
+        self.title = "İlanlar"
         fetchProducts()
     }
-    
-    func fetchProducts() {
+
+    func fetchProducts(skip: Int = 0, take: Int = 10) {
         self.isLoading = true
-        
-        APIClient.shared.fetchListings { [weak self] result in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                self.isLoading = false
-                
-                switch result {
-                case .success(let products):
-                    self.products = products
-                case .failure(let error):
-                    print("Error fetching products: \(error.localizedDescription)")
-                    self.products = []
+        Task {
+            do {
+                let fetchedProducts = try await carService.fetchCars(skip: skip, take: take)
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    self.cars = fetchedProducts
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    self.errorMessage = error.localizedDescription
                 }
             }
         }
     }
 
     @MainActor
-    func navigateToDetail(product: Product) {
-        router.routeToDetail(product: product)
+    func navigateToDetail(listing: Listing) {
+        router.routeToDetail(listing: listing)
     }
-    
+
     @MainActor
     func navigateToInfo() {
         router.routeToInfo()
     }
-    
+
     @MainActor
     func navigateToWelcome() {
         router.routeToWelcome()

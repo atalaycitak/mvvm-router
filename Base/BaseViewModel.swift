@@ -11,7 +11,7 @@ public protocol BaseViewModelProtocol: ObservableObject {
     func viewDidDisappear()
 }
 
- class BaseViewModel<R: RouterInterface>: BaseViewModelProtocol { //swiftte encapsulation reserved keywordleri ne anlama gelir
+ class BaseViewModel<R: RouterInterface>: BaseViewModelProtocol {
     @Published public var isLoading: Bool = false
     @Published public var title: String = ""
      
